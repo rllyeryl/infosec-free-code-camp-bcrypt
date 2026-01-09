@@ -5,12 +5,14 @@ const fccTesting  = require('./freeCodeCamp/fcctesting.js');
 // 1. required bcrypt
 const bcrypt = require('bcrypt');
 
-const app         = express();
+//START_ASYNC -do not remove notes, place code between correct pair of notes.
+const app = express();
 fccTesting(app);
 
 const saltRounds = 12;
 const myPlaintextPassword = 'sUperpassw0rd!';
 const someOtherPlaintextPassword = 'pass123';
+
 
 // NEW 2. generate the hash
 bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
