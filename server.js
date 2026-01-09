@@ -30,17 +30,7 @@ bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
     });
   }
 });
-*/
-//END_ASYNC
 
-//START_SYNC
-// 4. hash synchronously
-const syncHash = bcrypt.hashSync(myPlaintextPassword, saltRounds);
-console.log('Sync Hashed Password: ' + syncHash);
-
-// 5. compare synchronously
-const syncResult = bcrypt.compareSync(myPlaintextPassword, syncHash);
-console.log('Sync Result of comparison: ' + syncResult);
 //END_ASYNC
 
 //START_SYNC
