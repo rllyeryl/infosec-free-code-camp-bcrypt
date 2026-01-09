@@ -35,12 +35,12 @@ bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
 
 //START_SYNC
 // NEW 6. generate the hash synchronously and store it in a variable
-const syncHash = bcrypt.hashSync(myPlaintextPassword, saltRounds);
-console.log('Sync Hashed Password: ' + syncHash);
+var hash = bcrypt.hashSync(myPlaintextPassword, saltRounds);
+console.log('Sync Hashed Password: ' + hash);
 
 // NEW 7. compare the plaintext to the hash and store the boolean result
-const syncResult = bcrypt.compareSync(myPlaintextPassword, syncHash);
-console.log('Sync Result of comparison: ' + syncResult);
+var result = bcrypt.compareSync(myPlaintextPassword, hash);
+console.log('Sync Result of comparison: ' + result);
 //END_SYNC
 
 
