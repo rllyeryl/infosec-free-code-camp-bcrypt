@@ -4,8 +4,6 @@ const bodyParser  = require('body-parser');
 const fccTesting  = require('./freeCodeCamp/fcctesting.js');
 // 1. required bcrypt
 const bcrypt = require('bcrypt');
-
-//START_ASYNC -do not remove notes, place code between correct pair of notes.
 const app = express();
 fccTesting(app);
 
@@ -14,14 +12,15 @@ const myPlaintextPassword = 'sUperpassw0rd!';
 const someOtherPlaintextPassword = 'pass123';
 
 
-// NEW 2. generate the hash
+//START_ASYNC -do not remove notes, place code between correct pair of notes.
+// 2. generate the hash
 bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
   if (err) {
     console.log(err);
   } else {
     console.log('Hashed Password: ' + hash);
 
-    // NEW 3. hash compare
+    // 3. hash compare
     bcrypt.compare(myPlaintextPassword, hash, (err, res) => {
       if (err) {
         console.log(err);
@@ -31,21 +30,18 @@ bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
     });
   }
 });
-
-
-
-
-//START_ASYNC -do not remove notes, place code between correct pair of notes.
-
-
-
+*/
 //END_ASYNC
 
 //START_SYNC
+// NEW 4. hash synchronously
+const syncHash = bcrypt.hashSync(myPlaintextPassword, saltRounds);
+console.log('Sync Hashed Password: ' + syncHash);
 
-
-
-//END_SYNC
+// NEW 5. compare synchronously
+const syncResult = bcrypt.compareSync(myPlaintextPassword, syncHash);
+console.log('Sync Result of comparison: ' + syncResult);
+//END_ASYNC
 
 
 
